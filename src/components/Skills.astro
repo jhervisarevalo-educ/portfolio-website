@@ -1,0 +1,66 @@
+---
+const skills = [
+  {
+    name: 'C++',
+    icon: '⚙️',
+    color: 'from-blue-500 to-blue-700',
+    border: 'border-blue-500/30',
+    glow: 'hover:shadow-blue-500/25',
+    bg: 'bg-blue-500/10',
+  },
+  {
+    name: 'Python',
+    icon: '🐍',
+    color: 'from-yellow-400 to-green-500',
+    border: 'border-yellow-500/30',
+    glow: 'hover:shadow-yellow-500/25',
+    bg: 'bg-yellow-500/10',
+  },
+  {
+    name: 'Dart',
+    icon: '🎯',
+    color: 'from-cyan-400 to-blue-500',
+    border: 'border-cyan-500/30',
+    glow: 'hover:shadow-cyan-500/25',
+    bg: 'bg-cyan-500/10',
+  },
+  {
+    name: 'Java',
+    icon: '☕',
+    color: 'from-orange-400 to-red-500',
+    border: 'border-orange-500/30',
+    glow: 'hover:shadow-orange-500/25',
+    bg: 'bg-orange-500/10',
+  },
+];
+---
+
+<section id="skills" class="py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-center">
+        <span class="gradient-text">Skills</span>
+      </h2>
+      <p class="text-slate-400 text-center mb-16 max-w-xl mx-auto">
+        Technologies I work with to bring ideas to life
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {skills.map((skill, i) => (
+        <div
+          class={`reveal-stagger skill-card group relative p-6 rounded-2xl border ${skill.border} ${skill.bg} backdrop-blur-sm cursor-default transition-all duration-300 hover:scale-105 hover:shadow-lg ${skill.glow}`}
+          style={`transition-delay: ${i * 100}ms`}
+        >
+          <div class="text-4xl mb-3 text-center transition-transform duration-300 group-hover:scale-110">
+            {skill.icon}
+          </div>
+          <div class="text-center font-medium text-slate-200">
+            {skill.name}
+          </div>
+          <div class={`absolute inset-0 rounded-2xl bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

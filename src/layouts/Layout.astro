@@ -1,0 +1,246 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Jhervis Arevalo — BSCS Student & Aspiring Mobile App Developer' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-space-black text-slate-200 font-sans antialiased overflow-x-hidden dark:bg-space-black dark:text-slate-200 transition-colors duration-300">
+    <slot />
+    <style is:global>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      @layer base {
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          @apply bg-space-black text-slate-200;
+        }
+
+        body:not(.dark) {
+          @apply bg-slate-50 text-slate-800;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-stagger {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .reveal-stagger.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #7C3AED, #06B6D4, #A855F7, #22D3EE);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 8s ease infinite;
+      }
+
+      body:not(.dark) .gradient-text {
+        background: linear-gradient(135deg, #5B21B6, #0891B2, #7C3AED, #06B6D4);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 8s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      .glass {
+        background: rgba(26, 29, 46, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      body:not(.dark) .glass {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .glow-border {
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+
+      .glow-border:hover {
+        box-shadow: 0 0 15px rgba(34, 211, 238, 0.3), 0 0 30px rgba(124, 58, 237, 0.15);
+        border-color: rgba(34, 211, 238, 0.5);
+      }
+
+      body:not(.dark) .glow-border:hover {
+        box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+        border-color: rgba(124, 58, 237, 0.4);
+      }
+
+      /* ── Light Mode Overrides ── */
+      body:not(.dark) .text-white {
+        color: #1e293b;
+      }
+      body:not(.dark) .text-slate-200 {
+        color: #334155;
+      }
+      body:not(.dark) .text-slate-300 {
+        color: #475569;
+      }
+      body:not(.dark) .text-slate-400 {
+        color: #64748b;
+      }
+      body:not(.dark) .text-slate-500 {
+        color: #94a3b8;
+      }
+      body:not(.dark) .border-white\/5 {
+        border-color: rgb(226 232 240);
+      }
+      body:not(.dark) .border-white\/10 {
+        border-color: rgb(226 232 240);
+      }
+      body:not(.dark) .bg-white\/5 {
+        background-color: rgb(226 232 240 / 0.5);
+      }
+      body:not(.dark) .border-slate-600 {
+        border-color: #cbd5e1;
+      }
+      body:not(.dark) .hover\:bg-space-surface\/50:hover {
+        background-color: rgb(226 232 240 / 0.5);
+      }
+      body:not(.dark) .text-purple-300 {
+        color: #7c3aed;
+      }
+      body:not(.dark) .text-cyan-300 {
+        color: #0891b2;
+      }
+      body:not(.dark) .text-emerald-300 {
+        color: #059669;
+      }
+      body:not(.dark) .bg-purple-500\/15 {
+        background-color: rgb(124 58 237 / 0.1);
+      }
+      body:not(.dark) .border-purple-500\/30 {
+        border-color: rgb(124 58 237 / 0.2);
+      }
+      body:not(.dark) .bg-purple-500\/20 {
+        background-color: rgb(124 58 237 / 0.1);
+      }
+      body:not(.dark) .border-purple-500\/30 {
+        border-color: rgb(124 58 237 / 0.2);
+      }
+      body:not(.dark) .bg-cyan-500\/20 {
+        background-color: rgb(8 145 178 / 0.1);
+      }
+      body:not(.dark) .border-cyan-500\/30 {
+        border-color: rgb(8 145 178 / 0.2);
+      }
+      body:not(.dark) .bg-emerald-500\/20 {
+        background-color: rgb(5 150 105 / 0.1);
+      }
+      body:not(.dark) .border-emerald-500\/30 {
+        border-color: rgb(5 150 105 / 0.2);
+      }
+      body:not(.dark) .bg-purple-600\/20 {
+        background-color: rgb(124 58 237 / 0.15);
+      }
+      body:not(.dark) .bg-cyan-500\/15 {
+        background-color: rgb(8 145 178 / 0.1);
+      }
+      body:not(.dark) .bg-blue-500\/10 {
+        background-color: rgb(59 130 246 / 0.08);
+      }
+      body:not(.dark) .bg-yellow-500\/10 {
+        background-color: rgb(234 179 8 / 0.08);
+      }
+      body:not(.dark) .bg-orange-500\/10 {
+        background-color: rgb(249 115 22 / 0.08);
+      }
+      body:not(.dark) .border-blue-500\/30 {
+        border-color: rgb(59 130 246 / 0.2);
+      }
+      body:not(.dark) .border-yellow-500\/30 {
+        border-color: rgb(234 179 8 / 0.2);
+      }
+      body:not(.dark) .border-cyan-500\/30 {
+        border-color: rgb(8 145 178 / 0.2);
+      }
+      body:not(.dark) .border-orange-500\/30 {
+        border-color: rgb(249 115 22 / 0.2);
+      }
+      body:not(.dark) #starfield {
+        opacity: 0.15;
+      }
+
+      .typing-cursor::after {
+        content: '|';
+        animation: blink 1s step-end infinite;
+        @apply text-space-glow;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+        .reveal, .reveal-stagger {
+          opacity: 1;
+          transform: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </body>
+</html>

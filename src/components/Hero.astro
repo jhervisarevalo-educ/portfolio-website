@@ -1,0 +1,45 @@
+---
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <canvas id="starfield" class="absolute inset-0 w-full h-full"></canvas>
+
+  <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl animate-float"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl animate-float-delayed"></div>
+
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <p class="text-sm md:text-base font-medium text-slate-400 mb-4 tracking-widest uppercase animate-slide-up" style="animation-delay: 0.1s;">
+      Quezon City, Philippines
+    </p>
+
+    <h1 class="text-4xl sm:text-5xl md:text-7xl font-heading font-bold mb-6 animate-slide-up" style="animation-delay: 0.3s;">
+      <span class="gradient-text">Jhervis Arevalo</span>
+    </h1>
+
+    <div class="text-lg md:text-2xl text-slate-300 mb-8 h-10 animate-slide-up" style="animation-delay: 0.5s;">
+      <span id="typing-prefix">I'm a </span>
+      <span id="typing-text" class="font-medium text-space-glow typing-cursor"></span>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.7s;">
+      <a
+        href="#projects"
+        class="px-8 py-3 rounded-full font-medium bg-gradient-to-r from-purple-600 to-cyan-500 text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105"
+      >
+        View My Work
+      </a>
+      <a
+        href="#contact"
+        class="px-8 py-3 rounded-full font-medium border border-slate-600 text-slate-300 hover:border-space-glow hover:text-space-glow transition-all duration-300 hover:scale-105"
+      >
+        Get In Touch
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
