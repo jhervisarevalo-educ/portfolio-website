@@ -41,7 +41,7 @@ const projects = [
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          class={`reveal-stagger project-card group block p-6 rounded-2xl border border-white/5 bg-gradient-to-br ${project.gradient} backdrop-blur-sm glow-border transition-all duration-300 hover:-translate-y-2`}
+          class={`reveal-stagger project-card group block p-6 rounded-2xl border border-white/10 bg-space-surface bg-gradient-to-br ${project.gradient} backdrop-blur-sm glow-border transition-all duration-300 hover:-translate-y-2`}
           style={`transition-delay: ${i * 150}ms`}
         >
           <div class="flex items-center justify-between mb-4">
@@ -61,11 +61,11 @@ const projects = [
           <h3 class="text-xl font-heading font-semibold mb-2 text-white group-hover:text-space-glow transition-colors duration-200">
             {project.title}
           </h3>
-          <p class="text-slate-400 text-sm mb-4 leading-relaxed" set:html={project.description} />
+          <p class="text-slate-300 text-sm mb-4 leading-relaxed" set:html={project.description} />
 
           <div class="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-300 border border-white/10">
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-slate-200 border border-white/15">
                 {tag}
               </span>
             ))}
